@@ -24,9 +24,20 @@ var sample = new ffi.Library('../dlls/sample1', {
      ]
 });
 
-buffer = new Buffer(4 + 4 + 16);
-buffer.type = sampleOutType;
-ret = sample.api1(3, 2, buffer)
 
-console.log(buffer)
-console.log(buffer.deref())
+$(function() {
+    $("#call-dll").click(function() {
+        buffer = new Buffer(4 + 4 + 16);
+        buffer.type = sampleOutType;
+        ret = sample.api1($("#val-a").val(), $("#val-b").val(), buffer)
+
+        console.log(buffer);
+        var ans = buffer.deref();
+        console.log(ans)
+
+        $("#sum").text(ans.sum);
+        $("#difference").text(ans.difference);
+        $("#platform").text(ans.platform);
+
+    });
+})
