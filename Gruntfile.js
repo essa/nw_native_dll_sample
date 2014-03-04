@@ -14,14 +14,12 @@ module.exports = function (grunt) {
     resources: 'resources'
   };
 
-  function nw_gyp(mod, platform) {
+  function nw_gyp(mod) {
     return [
       'rm -rf ' + mod,
       'npm install ' + mod,
       'cd node_modules/' + mod,
       'nw-gyp rebuild --target=0.8.5',
-      'cd ..',
-      'mv ' + mod + ' ' + mod + '_' + platform
     ].join('&&')
   }
 
@@ -99,12 +97,12 @@ module.exports = function (grunt) {
       }
     },
     shell: {
-      install_ffi_mac: {
-        command: nw_gyp('ffi', 'mac'),
+      install_ffi: {
+        command: nw_gyp('ffi'),
         options: { stdout: true, stderr: true}
       },
-      install_ref_mac: {
-        command: nw_gyp('ref', 'mac'),
+      install_ref: {
+        command: nw_gyp('ref'),
         options: { stdout: true, stderr: true}
       }
     },
