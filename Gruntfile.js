@@ -14,6 +14,17 @@ module.exports = function (grunt) {
     resources: 'resources'
   };
 
+  function nw_gyp(mod, platform) {
+    return [
+      'rm -rf ' + mod,
+      'npm install ' + mod,
+      'cd node_modules/' + mod,
+      'nw-gyp rebuild --target=0.8.5',
+      'cd ..',
+      'mv ' + mod + ' ' + mod + '_' + platform
+    ].join('&&')
+  }
+
   grunt.initConfig({
     config: config,
     clean: {
@@ -85,6 +96,16 @@ module.exports = function (grunt) {
           dest: '<%= config.tmp %>/',
           src: '**'
         }]
+      }
+    },
+    shell: {
+      install_ffi_mac: {
+        command: nw_gyp('ffi', 'mac'),
+        options: { stdout: true, stderr: true}
+      },
+      install_ref_mac: {
+        command: nw_gyp('ref', 'mac'),
+        options: { stdout: true, stderr: true}
       }
     },
     compress: {

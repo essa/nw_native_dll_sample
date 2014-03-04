@@ -3,6 +3,7 @@ node_modules
 bower_components
 tmp
 resources
+app/js/lib
 
 *.dylib
 *.dll

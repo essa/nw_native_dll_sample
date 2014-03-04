@@ -30,5 +30,10 @@ Install jqeury
     $ vi Gruntfile
     $ grunt copy:bower
 
+Install ffi
+    $ npm install -g nw-gyp
+    $ npm install ffi ref
+
+
 
 

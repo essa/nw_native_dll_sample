@@ -3,19 +3,17 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  
-    "homepage": "https://github.com/essa/nw-dll-sample",
-    "bugs": "https://github.com/essa/nw-dll-sample/issues",
-    "author": {
-      "name": "",
-      "email": "",
-      "url": "https://github.com/essa"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git://github.com/essa/nw-dll-sample.git"
-    },
-  
+  "homepage": "https://github.com/essa/nw-dll-sample",
+  "bugs": "https://github.com/essa/nw-dll-sample/issues",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": "https://github.com/essa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/essa/nw-dll-sample.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "matchdep": "~0.1.2",
@@ -25,7 +23,8 @@
     "grunt-contrib-jshint": "~0.4.3",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-rename": "0.0.3",
-    "grunt-contrib-compress": "~0.5.3"
+    "grunt-contrib-compress": "~0.5.3",
+    "grunt-shell": "^0.6.4"
   },
   "engines": {
     "node": ">=0.8.0"
