@@ -4,3 +4,8 @@ bower_components
 tmp
 resources
 
+*.dylib
+*.dll
+*.so
+
+
