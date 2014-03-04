@@ -31,8 +31,33 @@ Install jqeury
     $ grunt copy:bower
 
 Install ffi
-    $ npm install -g nw-gyp
+    $ grunt shell:install_ref shell:install_ffi
+
+Run the app
+    $ nodewebkit app
+
+## Install on Windows
+
+Install Visual Studio 2013 express
+
+Install MinGW (Base + C++ Compiler)
+
+Install Python 2.7.X
+
+Install node.js 32bit
+
+compile sample1.dll and test
     $ npm install ffi ref
+    $ cd nw_dll_sample/windows
+    $ make  
+    <Buffer@0x2a2fb98 05 00 00 00 01 00 00 00 77 69 6e 64 6f 77 73 00 00 00 00 00 00 00 00 00>
+    { sum: 5, difference: 1, platform: 'windows' }
+
+test with node-webkit
+
+    $ npm install -g grunt-cli nw-gyp
+    $ grunt shell:install_ref shell:install_ffi
+    $ nodewebkit app
 
 
 
