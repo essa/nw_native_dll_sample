@@ -104,6 +104,14 @@ module.exports = function (grunt) {
       install_ref: {
         command: nw_gyp('ref'),
         options: { stdout: true, stderr: true}
+      },
+      install_dlls_to_dist_mac: {
+        command: 'cp -a dlls <%= config.dist %>/node-webkit.app/Contents/Resources/app.nw',
+        options: { stdout: true, stderr: true, expand: true}        
+      },
+      install_ref_and_ffi_to_dist_mac: {
+        command: 'mkdir -p <%= config.dist %>/node-webkit.app/Contents/Resources/app.nw/node_modules && cp -a node_modules/ref node_modules/ffi <%= config.dist %>/node-webkit.app/Contents/Resources/app.nw/node_modules',
+        options: { stdout: true, stderr: true, expand: true}        
       }
     },
     compress: {
@@ -237,10 +245,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dist-mac', [
-    'jshint',
+    //'jshint',
     'clean:dist',
     'copy:webkit',
     'copy:appMacos',
+    'shell:install_dlls_to_dist_mac',
+    'shell:install_ref_and_ffi_to_dist_mac',
     'rename:app',
     'chmod'
   ]);

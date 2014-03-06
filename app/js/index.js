@@ -17,12 +17,20 @@ var sampleOutType = {
       }
     },
 }
-
-var sample = new ffi.Library('../dlls/sample1', {
+var sample1Api = {
    'api1': [
         'int32', [ 'int32', 'int32', ref.refType(sampleOutType)]
      ]
-});
+}
+var sample;
+
+try {
+    // running in a packaged app
+    sample = new ffi.Library('dlls/sample1', sample1Api) ;
+} catch(e) {
+    // running at the project root
+    sample = new ffi.Library('../dlls/sample1', sample1Api) ;
+}
 
 
 $(function() {

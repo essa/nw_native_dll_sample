@@ -76,6 +76,12 @@ You will see this.
 
 The source is [app/js/index.js](https://github.com/essa/nw_native_dll_sample/blob/master/app/js/index.js)
 
+### packaging
+
+    $ grunt dist-mac
+
+You can copy dist/nw-dll-sample.app/ to other machine and run it.
+
 ## on Windows
 
 ### Install dependencies
