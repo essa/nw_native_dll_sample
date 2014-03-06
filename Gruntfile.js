@@ -123,6 +123,10 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>',
           src: ['**']
+        }, {
+          expand: true,
+          cwd: '',
+          src: ['dlls/*', 'node_modules/ref/**', 'node_modules/ffi/**']
         }]
       },
       finalWindowsApp: {
@@ -184,7 +188,7 @@ module.exports = function (grunt) {
     var done = this.async();
     var childProcess = require('child_process');
     var exec = childProcess.exec;
-    exec('copy /b tmp\\nw.exe+tmp\\app.nw tmp\\QuickQuestion.exe && del tmp\\app.nw tmp\\nw.exe', function (error, stdout, stderr) {
+    exec('copy /b tmp\\nw.exe+tmp\\app.nw tmp\\nw-dll-sample.exe && del tmp\\app.nw tmp\\nw.exe', function (error, stdout, stderr) {
       var result = true;
       if (stdout) {
         grunt.log.write(stdout);
@@ -235,7 +239,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dist-win', [
-    'jshint',
+    //'jshint',
     'clean:dist',
     'copy:copyWinToTmp',
     'compress:appToTmp',
